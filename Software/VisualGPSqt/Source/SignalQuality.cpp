@@ -26,6 +26,7 @@
 #include <QtGui>
 #include <map>
 #include "SignalQuality.h"
+#include <iostream>
 
 CSignalQuality::CSignalQuality(CNMEAParserQt *pNMEAParser, QWidget *parent) :
     QWidget(parent),
@@ -92,7 +93,8 @@ void CSignalQuality::ConsolidateSatData(std::map <std::string, SAT_INFO_T>& mapS
                 satInfo.nConstType = CT_GLONASS;
             }
 
-            satInfo.strNmeaSpec = "GP" +  std::to_string(gpgsvData.SatInfo[i].nPRN);
+            std::string test = "GP" + std::to_string(gpgsvData.SatInfo[i].nPRN);
+            satInfo.strNmeaSpec = test;
             mapSatData[satInfo.strNmeaSpec] = satInfo;
         }
         // Galileo
@@ -110,7 +112,8 @@ void CSignalQuality::ConsolidateSatData(std::map <std::string, SAT_INFO_T>& mapS
             satInfo.nSNR = glgsvData.SatInfo[i].nSNR;
             satInfo.nPRN = glgsvData.SatInfo[i].nPRN;
             satInfo.nConstType = CT_GLONASS;
-            satInfo.strNmeaSpec = "GP" +  std::to_string(glgsvData.SatInfo[i].nPRN);
+            std::string test = "GP" +  std::to_string(glgsvData.SatInfo[i].nPRN);
+            satInfo.strNmeaSpec = test;
             mapSatData[satInfo.strNmeaSpec] = satInfo;
         }
         // BeiDou
