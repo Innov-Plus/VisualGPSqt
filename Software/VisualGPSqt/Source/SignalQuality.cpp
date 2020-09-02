@@ -103,7 +103,8 @@ void CSignalQuality::ConsolidateSatData(std::map <std::string, SAT_INFO_T>& mapS
             satInfo.nSNR = gagsvData.SatInfo[i].nSNR;
             satInfo.nPRN = gagsvData.SatInfo[i].nPRN;
             satInfo.nConstType = CT_GALILEO;
-            satInfo.strNmeaSpec = "EU" +  std::to_string(gagsvData.SatInfo[i].nPRN);
+            std::string test = "EU" +  std::to_string(gagsvData.SatInfo[i].nPRN);
+            satInfo.strNmeaSpec = test;
             mapSatData[satInfo.strNmeaSpec] = satInfo;
         }
         // GLONASS
